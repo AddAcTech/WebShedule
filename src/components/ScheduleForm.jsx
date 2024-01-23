@@ -37,15 +37,12 @@ function ScheduleForm() {
 
   return (
     <div className="h-screen flex flex-col gap-2 items-center justify-center">
-      <h1 className="text-2xl font-bold">New Schedule</h1>
-      <form className="flex flex-col gap-2">
+      <form className="flex flex-col gap-2 border p-4 border-black rounded">
+        <h1 className="text-center text-3xl font-bold">New Schedule</h1>
         <div className="flex gap-2 items-center">
-          <label className="">Day</label>
-          <select
-            className="border border-black p-1 w-full"
-            onChange={handleChange}
-            name="day"
-          >
+          <label className="font-mono">Day</label>
+          <select className="input w-full" onChange={handleChange} name="day">
+            <option>Select Day</option>
             <option value="0">Monday</option>
             <option value="1">Tuesday</option>
             <option value="2">Wednesday</option>
@@ -54,54 +51,57 @@ function ScheduleForm() {
           </select>
         </div>
         <div className="flex gap-2 items-center">
-          <label className="">Subject</label>
+          <label className="font-mono">Subject</label>
           <select
-            className="border border-black p-1 w-full"
+            className="input w-full"
             onChange={handleChange}
             name="subject"
           >
+            <option>Select Subject</option>
             {subjects.map((subject, index) => (
               <option key={index}>{subject}</option>
             ))}
           </select>
         </div>
         <div className="flex gap-2 items-center">
-          <label className="">Teacher</label>
+          <label className="font-mono">Teacher</label>
           <input
             type="text"
-            className="border border-black w-full"
+            className="input w-full"
             onChange={handleChange}
             name="teacher"
           />
         </div>
         <div className="flex gap-2 items-center">
-          <label className="">Starts</label>
+          <label className="font-mono">Starts</label>
           <input
             type="time"
-            className="border border-black w-full"
+            className="input w-full"
             onChange={handleChange}
             name="start"
           />
         </div>
         <div className="flex gap-2 items-center">
-          <label className="">Finish</label>
+          <label className="font-mono">Finish</label>
           <input
             type="time"
-            className="border border-black w-full"
+            className="input w-full"
             onChange={handleChange}
             name="finish"
           />
         </div>
         <div className="flex gap-2 items-center">
-          <label className="">Room</label>
+          <label className="font-mono">Room</label>
           <input
             type="text"
-            className="border border-black w-full"
+            className="input w-full"
             onChange={handleChange}
             name="room"
           />
         </div>
-        <button onClick={handleSubmit}>Create</button>
+        <button onClick={handleSubmit} className="input">
+          Create
+        </button>
       </form>
     </div>
   );

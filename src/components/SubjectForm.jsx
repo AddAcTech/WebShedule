@@ -24,20 +24,18 @@ function SubjectForm() {
   };
   return (
     <div className="h-screen flex items-center justify-center">
-      <form className="flex flex-col gap-2">
+      <form className="flex flex-col gap-2 border p-4 border-black rounded">
         <div className="flex flex-col gap-1">
-          <label>New Subject</label>
+          <label className="text-center text-3xl font-bold">New Subject</label>
           <input
             type="text"
             name="subject"
-            className="border border-black rounded"
+            className="input"
+            placeholder="Algorithms"
             onChange={handleSubjectChange}
           />
         </div>
-        <button
-          className="px-3 text-center bg-black text-white rounded"
-          onClick={handleSubmit}
-        >
+        <button className="input" onClick={handleSubmit}>
           Create Subject
         </button>
       </form>
