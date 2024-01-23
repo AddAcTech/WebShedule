@@ -6,7 +6,7 @@ function Principal() {
   const navigate = useNavigate();
   return (
     <div className="h-screen flex flex-col justify-center items-center">
-      <p>Crear Horario</p>
+      <p>Create Schedule</p>
       <button onClick={() => navigate("/form")}>
         <FaEdit size={60} />
       </button>

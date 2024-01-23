@@ -15,13 +15,13 @@ function SubjectForm() {
   };
   return (
     <div className="h-screen flex items-center justify-center">
-      <form>
-        <div className="flex flex-col">
-          <label>Nueva Materia</label>
+      <form className="flex flex-col gap-2">
+        <div className="flex flex-col gap-1">
+          <label>New Subject</label>
           <input
             type="text"
             name="subject"
-            className="border border-black"
+            className="border border-black rounded"
             onChange={handleSubjectChange}
           />
         </div>
@@ -29,7 +29,7 @@ function SubjectForm() {
           className="px-3 text-center bg-black text-white rounded"
           onClick={handleSubmit}
         >
-          Crear Materia
+          Create Subject
         </button>
       </form>
     </div>
