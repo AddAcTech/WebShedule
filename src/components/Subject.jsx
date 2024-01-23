@@ -1,12 +1,14 @@
 import React from "react";
 
-function Subject({ subject }) {
+function Subject({ subject, teacher, start, finish, room }) {
   return (
     <div className="p-3 font-mono border">
       <h1 className="text-2xl font-bold">{subject}</h1>
-      <p>Instructor: </p>
-      <p>Time: 11:00 AM - 12:30 PM </p>
-      <p>Location: Room 102 </p>
+      <p>Instructor: {teacher}</p>
+      <p>
+        Time: {start} AM - {finish} PM{" "}
+      </p>
+      <p>Location: {room} </p>
     </div>
   );
 }

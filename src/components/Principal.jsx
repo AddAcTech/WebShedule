@@ -7,9 +7,10 @@ import Subject from "./Subject";
 function Principal() {
   const [subjects, setSubjects] = useState([]);
   useEffect(() => {
-    const response = JSON.parse(localStorage.getItem("subjects"));
+    const response = JSON.parse(localStorage.getItem("schedule"));
     if (response) {
       setSubjects(response);
+      console.log(response);
     }
   }, []);
   const navigate = useNavigate();
@@ -30,8 +31,15 @@ function Principal() {
         </div>
       </div>
       <div className="flex flex-col">
-        {subjects.map((subject) => (
-          <Subject subject={subject} />
+        {subjects.map((subject, index) => (
+          <Subject
+            subject={subject.subject}
+            teacher={subject.teacher}
+            start={subject.start}
+            finish={subject.finish}
+            room={subject.room}
+            key={index}
+          />
         ))}
       </div>
     </div>
