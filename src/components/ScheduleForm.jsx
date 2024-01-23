@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
-
+import { useNavigate } from "react-router-dom";
 function ScheduleForm() {
+  const navigate = useNavigate();
   const [subjects, setSubjects] = useState([]);
   const [prevSchedule, setPrevSchedule] = useState([]);
   const [schedule, setSchedule] = useState({
@@ -27,12 +28,14 @@ function ScheduleForm() {
     setSchedule({ ...schedule, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
     setPrevSchedule([...prevSchedule, schedule]);
     localStorage.setItem(
       "schedule",
       JSON.stringify([...prevSchedule, schedule])
     );
+    navigate("/");
   };
 
   return (

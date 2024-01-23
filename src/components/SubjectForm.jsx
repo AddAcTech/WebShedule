@@ -1,8 +1,7 @@
-//Las materias seran un arreglo de strings
-
 import { useState, useEffect } from "react";
-
+import { useNavigate } from "react-router-dom";
 function SubjectForm() {
+  const navigate = useNavigate();
   const [subject, setSubject] = useState("");
   const [subjects, setSubjects] = useState([]);
 
@@ -18,9 +17,10 @@ function SubjectForm() {
   }, []);
 
   const handleSubmit = (e) => {
+    e.preventDefault();
     setSubjects([...subjects, subject]);
     localStorage.setItem("subjects", JSON.stringify([...subjects, subject]));
-    /* console.log(subject); */
+    navigate("/");
   };
   return (
     <div className="h-screen flex items-center justify-center">
