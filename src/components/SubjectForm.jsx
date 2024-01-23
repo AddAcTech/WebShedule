@@ -1,17 +1,26 @@
 //Las materias seran un arreglo de strings
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 function SubjectForm() {
   const [subject, setSubject] = useState("");
+  const [subjects, setSubjects] = useState([]);
 
   const handleSubjectChange = (e) => {
     setSubject(e.target.value);
   };
 
+  useEffect(() => {
+    const response = JSON.parse(localStorage.getItem("subjects"));
+    if (response) {
+      setSubjects(response);
+    }
+  }, []);
+
   const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(subject);
+    setSubjects([...subjects, subject]);
+    localStorage.setItem("subjects", JSON.stringify([...subjects, subject]));
+    /* console.log(subject); */
   };
   return (
     <div className="h-screen flex items-center justify-center">
