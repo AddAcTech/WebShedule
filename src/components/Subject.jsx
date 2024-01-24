@@ -6,7 +6,7 @@ function Subject({ subject, teacher, start, finish, room }) {
       <h1 className="text-2xl font-bold">{subject}</h1>
       <p>Instructor: {teacher}</p>
       <p>
-        Time: {start} AM - {finish} PM{" "}
+        Time: {start} - {finish}
       </p>
       <p>Location: {room} </p>
     </div>

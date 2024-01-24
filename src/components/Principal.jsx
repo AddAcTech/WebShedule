@@ -6,6 +6,7 @@ import { AiFillSchedule } from "react-icons/ai";
 
 function Principal() {
   const [subjects, setSubjects] = useState([]);
+  const [today, setToday] = useState([]);
   const [fecha, setFecha] = useState(new Date());
   const [dia, setDia] = useState("");
   const [dias, setDias] = useState([
@@ -29,9 +30,11 @@ function Principal() {
   }, []);
 
   // Filtramos los subjects por el día de hoy
-  const subjectsToday = subjects.filter((subject) => subject.day === dia);
+  useEffect(() => {
+    setToday(subjects.filter((subject) => subject.day === dia));
+  }, [subjects, dia]);
 
-  if (subjectsToday.length === 0 || !subjectsToday) {
+  if (today.length === 0 || !today) {
     return <EmptySchedule />;
   }
 
@@ -45,7 +48,7 @@ function Principal() {
             {dia} schedule
           </h1>
         </div>
-        {subjectsToday.map((subject, index) => (
+        {today.map((subject, index) => (
           <Subject
             subject={subject.subject}
             teacher={subject.teacher}

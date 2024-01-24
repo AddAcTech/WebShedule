@@ -49,7 +49,7 @@ function ScheduleForm() {
             <option value="Monday">Monday</option>
             <option value="Tuesday">Tuesday</option>
             <option value="Wednesday">Wednesday</option>
-            <option value="Thrusday">Thrusday</option>
+            <option value="Thursday">Thursday</option>
             <option value="Friday">Friday</option>
           </select>
         </div>
