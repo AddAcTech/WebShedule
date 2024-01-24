@@ -46,11 +46,11 @@ function ScheduleForm() {
           <label className="font-mono">Day</label>
           <select className="input w-full" onChange={handleChange} name="day">
             <option>Select Day</option>
-            <option value="0">Monday</option>
-            <option value="1">Tuesday</option>
-            <option value="2">Wednesday</option>
-            <option value="3">Thrusday</option>
-            <option value="4">Friday</option>
+            <option value="Monday">Monday</option>
+            <option value="Tuesday">Tuesday</option>
+            <option value="Wednesday">Wednesday</option>
+            <option value="Thrusday">Thrusday</option>
+            <option value="Friday">Friday</option>
           </select>
         </div>
         <div className="flex gap-2 items-center">
