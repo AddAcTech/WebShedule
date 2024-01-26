@@ -18,14 +18,14 @@ function Principal() {
   ]);
 
   useEffect(() => {
-    setDia(dias[fecha.getDay()]);
+    setDia(dias[fecha.getDay() - 1]);
   }, [fecha]);
 
   useEffect(() => {
     const response = JSON.parse(localStorage.getItem("schedule"));
     if (response) {
       setSubjects(response);
-      console.log(response);
+      //console.log(response);
     }
   }, []);
 
