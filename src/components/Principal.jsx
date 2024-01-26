@@ -25,7 +25,6 @@ function Principal() {
     const response = JSON.parse(localStorage.getItem("schedule"));
     if (response) {
       setSubjects(response);
-      //console.log(response);
     }
   }, []);
 
@@ -33,6 +32,14 @@ function Principal() {
   useEffect(() => {
     setToday(subjects.filter((subject) => subject.day === dia));
   }, [subjects, dia]);
+
+  const handleDelete = (subjectToDelete) => {
+    const updatedSubjects = subjects.filter(
+      (subject) => subject !== subjectToDelete
+    );
+    setSubjects(updatedSubjects);
+    localStorage.setItem("schedule", JSON.stringify(updatedSubjects));
+  };
 
   if (today.length === 0 || !today) {
     return <EmptySchedule />;
@@ -49,14 +56,9 @@ function Principal() {
           </h1>
         </div>
         {today.map((subject, index) => (
-          <Subject
-            subject={subject.subject}
-            teacher={subject.teacher}
-            start={subject.start}
-            finish={subject.finish}
-            room={subject.room}
-            key={index}
-          />
+          <div key={index}>
+            <Subject subject={subject} onDelete={() => handleDelete(subject)} />
+          </div>
         ))}
       </div>
     </div>
