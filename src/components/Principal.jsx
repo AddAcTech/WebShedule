@@ -28,9 +28,17 @@ function Principal() {
     }
   }, []);
 
-  // Filtramos los subjects por el día de hoy
+  // Filtramos los subjects por el día de hoy y ordenamos por hora ascendente
   useEffect(() => {
-    setToday(subjects.filter((subject) => subject.day === dia));
+    setToday(
+      subjects
+        .filter((subject) => subject.day === dia)
+        .sort((a, b) => {
+          const [hourA, minuteA] = a.start.split(":").map(Number);
+          const [hourB, minuteB] = b.start.split(":").map(Number);
+          return hourA * 60 + minuteA - (hourB * 60 + minuteB);
+        })
+    );
   }, [subjects, dia]);
 
   const handleDelete = (subjectToDelete) => {
